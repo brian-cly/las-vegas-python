@@ -1,6 +1,6 @@
 import random
 
-x = 0
+total = 0
 
 def draw():
 	hand = random.randint(1,11)
@@ -8,19 +8,19 @@ def draw():
 
 for _ in range(2):
 	card = draw()
-	x += card
+	total += card
 	print 'Card: ' + str(card)
 
-print 'Total: ' + str(x)
+print 'Total: ' + str(total)
 
-while x < 21:
+while total < 21:
 	hit = raw_input('Hit? (Y/N): ')
 	if hit == 'y':
 		card = draw()
-		x += card
+		total += card
 		print 'Card: ' + str(card)
-		print 'Total: ' + str(x)
-	if hit == 'n':
+		print 'Total: ' + str(total)
+	elif hit == 'n':
 		break
 	else:
 		print 'What is that?'
