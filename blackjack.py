@@ -20,6 +20,8 @@ while x < 21:
 		x += card
 		print 'Card: ' + str(card)
 		print 'Total: ' + str(x)
+	if hit == 'n':
+		break
 	else:
 		print 'What is that?'
 else:
