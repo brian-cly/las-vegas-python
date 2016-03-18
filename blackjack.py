@@ -11,7 +11,7 @@ def draw():
 def balance(result,bet,cash):
 	if result == 'win':
 		cash += 2*bet
-		print 'You win $' + str(2*bet) + '. You now have $' + str(cash) + '.'
+		print 'You win $' + str(bet) + '. You now have $' + str(cash) + '.'
 	elif result == 'lose':
 		cash -= bet
 		print 'You lose $' + str(bet) + '. You now have $' + str(cash) + '.'
@@ -32,7 +32,7 @@ while cash > 0:
 		dealer += dealer_card
 		print 'Card: ' + str(user_card)
 	print 'Total: ' + str(total)
-	while total < 22:
+	while total < 21:
 		hit = raw_input('Hit? (Y/N): ')
 		if hit == 'Y' or hit == 'y':
 			user_card = draw()
@@ -61,7 +61,11 @@ while cash > 0:
 		else:
 			print 'I do not recognize your response.'
 	else:
-		print 'You a busta'
-		balance('lose',bet,cash)
+		if total == 21:
+			print 'Black Jack! You win!'
+			balance('win',2*bet,cash)
+		else:
+			print 'You a busta'
+			balance('lose',bet,cash)
 else:
 	print 'Game Over'
