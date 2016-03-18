@@ -3,16 +3,12 @@ import random
 total = 0
 dealer = 0
 cash = 100
+yes = ['Y','y','Yes','yes']
+no = ['N','n','No','no']
 
 def draw():
 	hand = random.randint(1,11)
 	return hand
-
-def deal(total):
-	card = draw()
-	total += card
-	print 'Card' + str(card)
-	return total
 
 def balance(result,bet,cash):
 	if result == 'win':
@@ -38,12 +34,12 @@ while cash > 0:
 	print 'Total: ' + str(total)
 	while total < 21:
 		hit = raw_input('Hit? (Y/N): ')
-		if hit == 'Y' or hit == 'y':
+		if hit in yes:
 			user_card = draw()
 			total += user_card
 			print 'Card: ' + str(user_card)
 			print 'Total: ' + str(total)
-		elif hit == 'N' or hit == 'n':
+		elif hit in no:
 			print 'Dealer Total: ' + str(dealer)
 			while dealer < 15:
 				dealer_card = draw()
