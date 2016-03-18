@@ -18,12 +18,12 @@ print 'Total: ' + str(total)
 
 while total < 21:
 	hit = raw_input('Hit? (Y/N): ')
-	if hit == 'y':
+	if hit == 'Y' or hit == 'y':
 		user_card = draw()
 		total += user_card
 		print 'Card: ' + str(user_card)
 		print 'Total: ' + str(total)
-	elif hit == 'n':
+	elif hit == 'N' or hit == 'n':
 		print 'Dealer Total: ' + str(dealer)
 		while dealer < 15:
 			dealer_card = draw()
