@@ -8,12 +8,16 @@ def draw():
 	hand = random.randint(1,11)
 	return hand
 
+def deal(total):
+	card = draw()
+	total += card
+	print 'Card' + str(card)
+	return total
+
 def balance(result,bet,cash):
 	if result == 'win':
-		cash += 2*bet
 		print 'You win $' + str(bet) + '. You now have $' + str(cash) + '.'
 	elif result == 'lose':
-		cash -= bet
 		print 'You lose $' + str(bet) + '. You now have $' + str(cash) + '.'
 	elif result == 'tie':
 		print 'Tie game!'
@@ -48,14 +52,17 @@ while cash > 0:
 				print 'Dealer Total: ' + str(dealer)
 			if dealer > 21:
 				print 'Dealer a busta. You win!'
+				cash += bet
 				balance('win',bet,cash)
 			elif total < dealer:
 				print 'Dealer wins!'
+				cash -= bet
 				balance('lose',bet,cash)
 			elif total == dealer:
 				balance('tie',bet,cash)
 			else:
 				print 'You win!'
+				cash += bet
 				balance('win',bet,cash)
 			break
 		else:
@@ -63,9 +70,11 @@ while cash > 0:
 	else:
 		if total == 21:
 			print 'Black Jack! You win!'
+			cash += 2*bet
 			balance('win',2*bet,cash)
 		else:
 			print 'You a busta'
+			cash -= bet
 			balance('lose',bet,cash)
 else:
 	print 'Game Over'
