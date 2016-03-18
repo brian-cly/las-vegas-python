@@ -42,7 +42,7 @@ while cash > 0:
 			print 'Total: ' + str(total)
 		elif hit in no:
 			print 'Dealer Total: ' + str(dealer)
-			while dealer < 15:
+			while dealer < 17:
 				dealer_card = draw()
 				dealer += dealer_card
 				print 'Dealer Card: ' + str(dealer_card)
@@ -66,9 +66,9 @@ while cash > 0:
 			print 'I do not recognize your response.'
 	else:
 		if total == 21:
-			print 'Black Jack! You win!'
-			cash += 2*bet
-			balance('win',2*bet,cash)
+			print 'Blackjack! You win!'
+			cash += 1.5*bet
+			balance('win',1.5*bet,cash)
 		else:
 			print 'You a busta'
 			cash -= bet
