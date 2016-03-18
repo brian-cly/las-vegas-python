@@ -25,6 +25,7 @@ while cash > 0:
 	while bet > cash:
 		bet = input('That is more cash than you have! How much do you want to bet? ')
 	total = 0
+	dealer = 0
 	for _ in range(2):
 		user_card = draw()
 		dealer_card = draw()
